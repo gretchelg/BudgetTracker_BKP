@@ -1,25 +1,45 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Fragment } from "react";
 import { Box, Menu, MenuItem, ListItemIcon, Divider, IconButton} from "@mui/material";
 import { Tooltip, Container, Typography} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import Logout from "@mui/icons-material/Logout";
+import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { ThemeContext } from "../context/ThemeContext";
+import { DataContext } from "../context/DataContext";
+import { AuthContext } from "../context/AuthContext";
 
 export default function NavBar() {
+    const { token, logout } = useContext(AuthContext);
+    const { toggleTheme, theme } = useContext(ThemeContext);
+    const { setTranData, setBudgetData, setCategories } = useContext(DataContext);
     const navigate = useNavigate();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const location = useLocation();
 
     console.log("Current route:", location.pathname);
+
+    const handleClick = () => {
+        localStorage.removeItem("token");
+        setTranData([]);
+        setBudgetData([]);
+        setCategories([]);
+        logout();
+        navigate("/");
+    };
     
-    const handleClickAvatar = (event) => {
+    const handleClickMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleClick2 = () => {
+        navigate("/scan");
     };
 
     const page = () => {
@@ -114,7 +134,7 @@ export default function NavBar() {
                 <Box style={{ float: "right" }}>
                     <Tooltip title="Account settings">
                         <IconButton
-                            onClick={handleClickAvatar}
+                            onClick={handleClickMenu}
                             size="small"
                             sx={{ ml: 5 }}
                             aria-controls={open ? "account-menu" : undefined}
@@ -164,7 +184,7 @@ export default function NavBar() {
                 >
                     <MenuItem onClick={handleClose}>
                         <Box
-                        // onClick={handleClick}
+                        onClick={handleClick}
                         sx={{
                             display: "flex",
                             alignItems: "center",
@@ -172,7 +192,7 @@ export default function NavBar() {
                         }}
                         >
                             <ListItemIcon sx={{ color: "#FFFF" }}>
-                                <Logout sx={{ fontSize: "25px" }} />
+                                <LogoutIcon sx={{ fontSize: "25px" }} />
                             </ListItemIcon>
         
                             <Typography
@@ -190,6 +210,68 @@ export default function NavBar() {
                     </MenuItem>
                     
                     <Divider />
+
+
+                    {token !== null && (
+                        <MenuItem onClick={handleClose}>
+                            <Box
+                                onClick={handleClick2}
+                                sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                textAlign: "center",
+                                }}
+                            >
+                                <ListItemIcon sx={{ color: "#FFFF" }}>
+                                    <Settings sx={{ fontSize: "25px" }} />
+                                </ListItemIcon>
+
+                                <Typography
+                                    sx={{
+                                        fontFamily: "Inter",
+                                        fontWeight: 700,
+                                        color: "#FFFF",
+                                        textDecoration: "none",
+                                        fontSize: "16px",
+                                    }}
+                                >
+                                    Scan Receipt
+                                </Typography>
+                            </Box>
+                        </MenuItem>
+                    )}
+
+                    <Divider />
+
+                    <MenuItem>
+                    
+                        <Box
+                            onClick={toggleTheme}
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                textAlign: "center",
+                            }}
+                        >
+                            <ListItemIcon sx={{ color: "#FFFF" }}>
+                                <DarkModeIcon sx={{ fontSize: "25px" }} />
+                            </ListItemIcon>
+                        
+                            <Typography
+                                sx={{
+                                fontFamily: "Inter",
+                                fontWeight: 700,
+                                color: "#FFFF",
+                                textDecoration: "none",
+                                fontSize: "16px",
+                                }}
+                            >
+                                {theme === "dark" ? "Light mode" : "Dark Mode"}
+                            </Typography>
+                        
+                        </Box>
+                    </MenuItem>
+
                 </Menu>
             </Fragment>
         
