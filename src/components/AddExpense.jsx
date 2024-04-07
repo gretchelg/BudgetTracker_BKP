@@ -2,17 +2,15 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { DataContext } from "../context/DataContext";
 import { ThemeContext } from "../context/ThemeContext";
-import "./style/AddExpense.css";
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import {Box, InputLabel, MenuItem, FormControl, Select} from "@mui/material";
 import {Container, Button, TextField, OutlinedInput} from "@mui/material";
 import {InputAdornment, CircularProgress, Alert} from "@mui/material";
-import { styled } from "@mui/system";
-
+import "./style/AddExpense.css";
 
 export default function AddExpense() {
     const [category, setCategory] = useState("");

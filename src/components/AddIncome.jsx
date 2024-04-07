@@ -2,15 +2,14 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { DataContext } from "../context/DataContext";
 import { ThemeContext } from "../context/ThemeContext";
-import "../components/styles/addIncome.css";
 
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import {Box, TextField, MenuItem, InputLabel, Alert, OutlinedInput,} from "@mui/material";
 import {Button, Container, InputAdornment, CircularProgress} from "@mui/material";
 import { FormControl, Select} from "@mui/material";
-import Select from "@mui/material/Select";
+import "./style/AddIncome.css";
 
 export default function AddIncome() {
     const [category_name, setCatgeroy] = useState("");

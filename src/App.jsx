@@ -9,6 +9,8 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Transaction from './components/Transaction';
+import AddIncome from './components/AddIncome';
+import AddExpense from './components/AddExpense';
 import Report from './components/Report';
 
 
@@ -28,9 +30,9 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/reports" element={<Report />} />
                 <Route path="/transactions" element={<Transaction />} />
-                {/* <Route path="/addexpense" element={<AddExpense />} />
+                <Route path="/addexpense" element={<AddExpense />} />
                 <Route path="/addincome" element={<AddIncome />} />
-                <Route path="/budget" element={<Budget />} />
+                {/* <Route path="/budget" element={<Budget />} />
                 <Route path="/addbudget" element={<Addbudget />} />
                 <Route path="/link" element={<Client />} />
                 <Route path="/scan" element={<Scan />} />
