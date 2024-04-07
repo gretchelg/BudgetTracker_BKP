@@ -456,12 +456,20 @@ export default function Dashboard() {
                                     <Box className="dash-budget">
                                         {/* {
                                         (() => {
-                                            const Icon =
-                                            categoryIcons[
-                                                each.category_name ? each.category_name : "others"
-                                            ];
+                                            var selection = each.category_name ? each.category_name : "others"
+                                            // const selection = "food"
+                                            // selection = String(selection)
+                                            console.log("selection typeof: ", typeof selection)
+                                            console.log("selection VALUE: ", selection)
+                                            const Icon = categoryIcons[selection]
+                                            // categoryIcons[
+                                                // each.category_name ? each.category_name : "others"
+                                            // ];
+                                            console.log("ICON VALUE: ", Icon)
 
-                                            return <Icon className="dash-icon-title" />;
+                                            // return <IconEatingOut/>
+                                            return <Icon/>
+                                            // return <Icon className="dash-icon-title" />;
                                         })()
                                         } */}
 
