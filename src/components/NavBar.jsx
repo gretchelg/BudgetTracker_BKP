@@ -222,9 +222,6 @@ export default function NavBar() {
                                 textAlign: "center",
                                 }}
                             >
-                                <ListItemIcon sx={{ color: "#FFFF" }}>
-                                    <Settings sx={{ fontSize: "25px" }} />
-                                </ListItemIcon>
 
                                 <Typography
                                     sx={{

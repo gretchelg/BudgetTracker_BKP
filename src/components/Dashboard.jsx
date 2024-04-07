@@ -8,10 +8,24 @@ import "./style/Dashboard.css"
 import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 import Charts from "./Charts";
-import { BorderStyle, ConstructionOutlined, FunctionsOutlined,} from "@mui/icons-material";
 import { MenuItem, InputLabel, FormControl, Select } from "@mui/material";
 import { Container, Box, Typography, LinearProgress } from "@mui/material";
 import Grid from "@mui/material/Grid";
+
+import IconBills from '@mui/icons-material/LocalAtm';
+import IconCommunication from '@mui/icons-material/AddCircle';
+import IconEatingOut from '@mui/icons-material/Dining';
+import IconEducation from '@mui/icons-material/School';
+import IconEntertainment from '@mui/icons-material/Attractions';
+import IconGroceries from '@mui/icons-material/LocalGroceryStore';
+import IconInsurance from '@mui/icons-material/Security';
+import IconMedicine from '@mui/icons-material/MedicationLiquid';
+import IconOthers from '@mui/icons-material/ExpandCircleDownOutlined';
+import IconPets from '@mui/icons-material/PetsOutlined';
+import IconRent from '@mui/icons-material/HomeWorkOutlined';
+import IconRepairs from '@mui/icons-material/HandymanOutlined';
+import IconTransportation from '@mui/icons-material/CommuteOutlined';
+import IconWork from '@mui/icons-material/WorkOutlined';
 
 
 export default function Dashboard() {
@@ -440,7 +454,7 @@ export default function Dashboard() {
                                 >
 
                                     <Box className="dash-budget">
-                                        {
+                                        {/* {
                                         (() => {
                                             const Icon =
                                             categoryIcons[
@@ -449,7 +463,7 @@ export default function Dashboard() {
 
                                             return <Icon className="dash-icon-title" />;
                                         })()
-                                        }
+                                        } */}
 
                                         <Box className="dash-budget-wrapper">
 
